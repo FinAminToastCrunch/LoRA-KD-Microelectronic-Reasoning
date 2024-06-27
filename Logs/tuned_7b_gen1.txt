@@ -1,0 +1,893 @@
+(base) nrouf2@Mac-Studio llama.cpp % ./main  -m ./models/7B-tuned/ggml-model-f16.bin  -n 1024  --repeat_penalty 1.0  --color  -i  -r "User:" -f ./prompts/test_questions.txt
+Log start
+main: build = 2442 (d84c4850)
+main: built with Apple clang version 15.0.0 (clang-1500.3.9.4) for arm64-apple-darwin23.3.0
+main: seed  = 1712446169
+llama_model_loader: loaded meta data with 16 key-value pairs and 291 tensors from ./models/7B-tuned/ggml-model-f16.bin (version GGUF V3 (latest))
+llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.
+llama_model_loader: - kv   0:                       general.architecture str              = llama
+llama_model_loader: - kv   1:                               general.name str              = llama
+llama_model_loader: - kv   2:                           llama.vocab_size u32              = 32000
+llama_model_loader: - kv   3:                       llama.context_length u32              = 2048
+llama_model_loader: - kv   4:                     llama.embedding_length u32              = 4096
+llama_model_loader: - kv   5:                          llama.block_count u32              = 32
+llama_model_loader: - kv   6:                  llama.feed_forward_length u32              = 11008
+llama_model_loader: - kv   7:                 llama.rope.dimension_count u32              = 128
+llama_model_loader: - kv   8:                 llama.attention.head_count u32              = 32
+llama_model_loader: - kv   9:              llama.attention.head_count_kv u32              = 32
+llama_model_loader: - kv  10:     llama.attention.layer_norm_rms_epsilon f32              = 0.000001
+llama_model_loader: - kv  11:                          general.file_type u32              = 1
+llama_model_loader: - kv  12:                       tokenizer.ggml.model str              = llama
+llama_model_loader: - kv  13:                      tokenizer.ggml.tokens arr[str,32000]   = ["<unk>", "<s>", "</s>", "<0x00>", "<...
+llama_model_loader: - kv  14:                      tokenizer.ggml.scores arr[f32,32000]   = [0.000000, 0.000000, 0.000000, 0.0000...
+llama_model_loader: - kv  15:                  tokenizer.ggml.token_type arr[i32,32000]   = [2, 3, 3, 6, 6, 6, 6, 6, 6, 6, 6, 6, ...
+llama_model_loader: - type  f32:   65 tensors
+llama_model_loader: - type  f16:  226 tensors
+llm_load_vocab: special tokens definition check successful ( 259/32000 ).
+llm_load_print_meta: format           = GGUF V3 (latest)
+llm_load_print_meta: arch             = llama
+llm_load_print_meta: vocab type       = SPM
+llm_load_print_meta: n_vocab          = 32000
+llm_load_print_meta: n_merges         = 0
+llm_load_print_meta: n_ctx_train      = 2048
+llm_load_print_meta: n_embd           = 4096
+llm_load_print_meta: n_head           = 32
+llm_load_print_meta: n_head_kv        = 32
+llm_load_print_meta: n_layer          = 32
+llm_load_print_meta: n_rot            = 128
+llm_load_print_meta: n_embd_head_k    = 128
+llm_load_print_meta: n_embd_head_v    = 128
+llm_load_print_meta: n_gqa            = 1
+llm_load_print_meta: n_embd_k_gqa     = 4096
+llm_load_print_meta: n_embd_v_gqa     = 4096
+llm_load_print_meta: f_norm_eps       = 0.0e+00
+llm_load_print_meta: f_norm_rms_eps   = 1.0e-06
+llm_load_print_meta: f_clamp_kqv      = 0.0e+00
+llm_load_print_meta: f_max_alibi_bias = 0.0e+00
+llm_load_print_meta: f_logit_scale    = 0.0e+00
+llm_load_print_meta: n_ff             = 11008
+llm_load_print_meta: n_expert         = 0
+llm_load_print_meta: n_expert_used    = 0
+llm_load_print_meta: causal attn      = 1
+llm_load_print_meta: pooling type     = 0
+llm_load_print_meta: rope type        = 0
+llm_load_print_meta: rope scaling     = linear
+llm_load_print_meta: freq_base_train  = 10000.0
+llm_load_print_meta: freq_scale_train = 1
+llm_load_print_meta: n_yarn_orig_ctx  = 2048
+llm_load_print_meta: rope_finetuned   = unknown
+llm_load_print_meta: ssm_d_conv       = 0
+llm_load_print_meta: ssm_d_inner      = 0
+llm_load_print_meta: ssm_d_state      = 0
+llm_load_print_meta: ssm_dt_rank      = 0
+llm_load_print_meta: model type       = 7B
+llm_load_print_meta: model ftype      = F16
+llm_load_print_meta: model params     = 6.74 B
+llm_load_print_meta: model size       = 12.55 GiB (16.00 BPW)
+llm_load_print_meta: general.name     = llama
+llm_load_print_meta: BOS token        = 1 '<s>'
+llm_load_print_meta: EOS token        = 2 '</s>'
+llm_load_print_meta: UNK token        = 0 '<unk>'
+llm_load_print_meta: LF token         = 13 '<0x0A>'
+llm_load_tensors: ggml ctx size =    0.22 MiB
+ggml_backend_metal_buffer_from_ptr: allocated buffer, size = 12603.03 MiB, (12603.09 / 147456.00)
+llm_load_tensors: offloading 32 repeating layers to GPU
+llm_load_tensors: offloading non-repeating layers to GPU
+llm_load_tensors: offloaded 33/33 layers to GPU
+llm_load_tensors:      Metal buffer size = 12603.02 MiB
+llm_load_tensors:        CPU buffer size =   250.00 MiB
+...................................................................................................
+llama_new_context_with_model: n_ctx      = 512
+llama_new_context_with_model: n_batch    = 512
+llama_new_context_with_model: n_ubatch   = 512
+llama_new_context_with_model: freq_base  = 10000.0
+llama_new_context_with_model: freq_scale = 1
+ggml_metal_init: allocating
+ggml_metal_init: found device: Apple M2 Ultra
+ggml_metal_init: picking default device: Apple M2 Ultra
+ggml_metal_init: default.metallib not found, loading from source
+ggml_metal_init: GGML_METAL_PATH_RESOURCES = nil
+ggml_metal_init: loading '/Users/nrouf2/llm_big_small/llama2/llama.cpp/ggml-metal.metal'
+ggml_metal_init: GPU name:   Apple M2 Ultra
+ggml_metal_init: GPU family: MTLGPUFamilyApple8  (1008)
+ggml_metal_init: GPU family: MTLGPUFamilyCommon3 (3003)
+ggml_metal_init: GPU family: MTLGPUFamilyMetal3  (5001)
+ggml_metal_init: simdgroup reduction support   = true
+ggml_metal_init: simdgroup matrix mul. support = true
+ggml_metal_init: hasUnifiedMemory              = true
+ggml_metal_init: recommendedMaxWorkingSetSize  = 154618.82 MB
+ggml_backend_metal_buffer_type_alloc_buffer: allocated buffer, size =   256.00 MiB, (12860.91 / 147456.00)
+llama_kv_cache_init:      Metal KV buffer size =   256.00 MiB
+llama_new_context_with_model: KV self size  =  256.00 MiB, K (f16):  128.00 MiB, V (f16):  128.00 MiB
+llama_new_context_with_model:        CPU  output buffer size =    62.50 MiB
+ggml_backend_metal_buffer_type_alloc_buffer: allocated buffer, size =    70.50 MiB, (12931.41 / 147456.00)
+llama_new_context_with_model:      Metal compute buffer size =    70.50 MiB
+llama_new_context_with_model:        CPU compute buffer size =     9.00 MiB
+llama_new_context_with_model: graph splits: 2
+
+system_info: n_threads = 16 / 24 | AVX = 0 | AVX_VNNI = 0 | AVX2 = 0 | AVX512 = 0 | AVX512_VBMI = 0 | AVX512_VNNI = 0 | FMA = 0 | NEON = 1 | ARM_FMA = 1 | F16C = 0 | FP16_VA = 1 | WASM_SIMD = 0 | BLAS = 1 | SSE3 = 0 | SSSE3 = 0 | VSX = 0 | MATMUL_INT8 = 0 |
+main: interactive mode on.
+Reverse prompt: 'User:'
+sampling:
+        repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+        top_k = 40, tfs_z = 1.000, top_p = 0.950, min_p = 0.050, typical_p = 1.000, temp = 0.800
+        mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000
+sampling order:
+CFG -> Penalties -> top_k -> tfs_z -> typical_p -> top_p -> min_p -> temperature
+generate: n_ctx = 512, n_batch = 2048, n_predict = 1024, n_keep = 1
+
+
+== Running in interactive mode. ==
+ - Press Ctrl+C to interject at any time.
+ - Press Return to return control to LLaMa.
+ - To return control without starting a new line, end your input with '/'.
+ - If you want to submit another line, end your input with '\'.
+
+ Transcript of a dialog, where the User interacts with an Assistant named Bob. Bob is helpful, kind, honest, good at writing and has been trained on information based on microelectronic circuits and DDR design. Bob only answers based on his stacked knowledge, he never fails to answer the User's requests with precision. The user will provide a list of questions and Bob will answer all of them.
+User: Hello, Bob.
+Bob: Hello. How may I help you today?
+User: Please tell me what Electronic Design Automation is.
+Bob: EDA is the field which concerns the tools which help engineers develop and design circuits.
+User:
+Bob:
+User:The following problems test your comprehension of domain specific knowledge and your ability to analyze and generate designs based on given specifications.
+
+Bob:
+User:A battery charger circuit has to be designed. The circuit uses a rectifier to convert AC signal from power line to DC signal appropriate for electronic devices. The input to the rectifier is 120V AC at 60Hz. It is important that both positive and negative half cycles of the AC signal are converted into DC. Tell me how to design this rectifier to achieve the given specifications.
+Bob: To design a battery charger circuit that converts AC input voltage to DC output voltage with the given specifications, I can suggest several options. One approach is to use a bridge rectifier circuit, which consists of four diodes connected in a bridge configuration. This will ensure that both positive and negative half cycles of the AC signal are converted into DC. Another option is to use a single-phase rectifier circuit with a center-tapped transformer. This will also ensure that both half cycles of the AC signal are converted into DC. However, the bridge rectifier circuit is more commonly used in battery chargers because it is simple and has less components.
+User:Can you tell me how to design the bridge rectifier? How should I connect the diodes and where should I take the output from?
+Bob: Of course! To design the bridge rectifier, you will need to connect four diodes in a bridge configuration. The diodes should be connected in a way that ensures that one diode is forward biased during each half cycle of the AC input voltage. This means that the input AC voltage should be connected to one end of the diode during one half cycle, and the other end of the diode during the next half cycle. The output of the rectifier should be taken from the midpoint of the bridge, which is the center point of the four diodes.
+User:An amplifier circuit with a gain of 100 has to be designed. The circuit should use MOSFET. The amplifier should have a high input resistance and low output resistance. The output signal can be inverting. The circuit is biased with a 10V DC supply. Your task is to: a)        Choose the amplifier configuration for this task. b)    Choose a proper biasing network for the amplifier. c)   Give the resistance values necessary to achieve the gain of 100. d)     Verify through calculations that the gain has been achieved.
+Bob: For this amplifier configuration, I suggest using a common source amplifier with a differential input and a common output. This will ensure that the input resistance is high and the output resistance is low. To choose the appropriate MOSFET, we need to calculate the drain voltage and drain current for the input signal and the input voltage. With a 10V DC supply, the drain voltage for the input signal is 5V, and the drain current is 1A. The drain voltage for the input voltage is 5V as well, but the drain current is 2A. With a gain of 100, the output voltage will be 50V, and the output current will be 1A. To achieve this gain, we need a MOSFET with a gain of 20, which is the ratio of the output voltage to the input voltage. For this MOSFET, the input resistance will be 1kOhm, and the output resistance will be 20kOhm.
+User:I don't think your calculation is correct. Can you go step by step?
+Bob: Of course! Let's go through the calculation step by step.
+Step 1: Calculate the drain voltage and drain current for the input signal and the input voltage.
+Drain voltage for input signal = 5V
+Drain current for input signal = 1A
+Drain voltage for input voltage = 5V
+Step 2: Calculate the drain voltage and drain current for the output voltage and output current.
+Drain voltage for output voltage = 50V
+Drain current for output voltage = 1A
+
+Step 3: Calculate the ratio of the output voltage to the input voltage.
+Ratio = 50V/5V = 10
+Step 4: Calculate the gain of the MOSFET.
+Gain = 10
+
+Step 5: Calculate the input resistance of the MOSFET.
+Input resistance = 1kOhm
+
+Step 6: Calculate the output resistance of the MOSFET.
+Output resistance = 20kOhm
+
+Step 7: Verify
+ that the gain of the MOSFET is equal to the ratio of the output voltage to the input voltage.
+Gain = 10
+Ratio = 50V/5V = 10
+
+Step 8: Verify that the input resistance of the MOSFET is equal to the ratio of the output voltage to the input voltage.
+Input resistance = 1kOhm
+Ratio = 50V/5V = 10
+
+Step 9: Verify that the output resistance of the MOSFET is equal to the input resistance multiplied by the gain.
+Output resistance = 1kOhm x 10 = 10kOhm
+
+Step 10: Verify that the output voltage is equal to the input voltage multiplied by the gain.
+Output voltage = 5V x 10 = 50V
+
+
+Step 11: Verify that the output current is equal to the output voltage divided by the input resistance.
+Output current = 50V / 1kOhm = 50mA
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1
+
+2
+D
+1
+
+
+D1
+DMS
+
+
+
+
+
+
+
+
+
+1
+
+
+
+
+1
+
+
+
+
+1
+
+
+
+
+
+1
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 2
+
+
+
+
+
+
+
+2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        04
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2
+
+
+
+
+
+
+
+
+
+
+
+
+1
+ 1
+
+
+
+
+1
+
+ 1
+
+
+
+
+
+
+
+0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1
+
+
+
+
+
+
+
+
+
+
+
+0 hopefully
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2
+
+
+
+
+
+
+0
+
+2
+
+
+
+0 everybody
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+MS

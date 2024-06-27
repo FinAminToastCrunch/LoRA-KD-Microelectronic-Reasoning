@@ -1,0 +1,428 @@
+(llama2) nrouf2@Mac-Studio llama.cpp % ./main  -m ./models/7B-tuned/ggml-model-f16.bin  -n 1024  --repeat_penalty 1.0  --color  -i  -r "User:" -f ./prompts/test_questions.txt
+Log start
+main: build = 2442 (d84c4850)
+main: built with Apple clang version 15.0.0 (clang-1500.3.9.4) for arm64-apple-darwin23.3.0
+main: seed  = 1712015967
+llama_model_loader: loaded meta data with 16 key-value pairs and 291 tensors from ./models/7B-tuned/ggml-model-f16.bin (version GGUF V3 (latest))
+llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.
+llama_model_loader: - kv   0:                       general.architecture str              = llama
+llama_model_loader: - kv   1:                               general.name str              = llama
+llama_model_loader: - kv   2:                           llama.vocab_size u32              = 32000
+llama_model_loader: - kv   3:                       llama.context_length u32              = 2048
+llama_model_loader: - kv   4:                     llama.embedding_length u32              = 4096
+llama_model_loader: - kv   5:                          llama.block_count u32              = 32
+llama_model_loader: - kv   6:                  llama.feed_forward_length u32              = 11008
+llama_model_loader: - kv   7:                 llama.rope.dimension_count u32              = 128
+llama_model_loader: - kv   8:                 llama.attention.head_count u32              = 32
+llama_model_loader: - kv   9:              llama.attention.head_count_kv u32              = 32
+llama_model_loader: - kv  10:     llama.attention.layer_norm_rms_epsilon f32              = 0.000001
+llama_model_loader: - kv  11:                          general.file_type u32              = 1
+llama_model_loader: - kv  12:                       tokenizer.ggml.model str              = llama
+llama_model_loader: - kv  13:                      tokenizer.ggml.tokens arr[str,32000]   = ["<unk>", "<s>", "</s>", "<0x00>", "<...
+llama_model_loader: - kv  14:                      tokenizer.ggml.scores arr[f32,32000]   = [0.000000, 0.000000, 0.000000, 0.0000...
+llama_model_loader: - kv  15:                  tokenizer.ggml.token_type arr[i32,32000]   = [2, 3, 3, 6, 6, 6, 6, 6, 6, 6, 6, 6, ...
+llama_model_loader: - type  f32:   65 tensors
+llama_model_loader: - type  f16:  226 tensors
+llm_load_vocab: special tokens definition check successful ( 259/32000 ).
+llm_load_print_meta: format           = GGUF V3 (latest)
+llm_load_print_meta: arch             = llama
+llm_load_print_meta: vocab type       = SPM
+llm_load_print_meta: n_vocab          = 32000
+llm_load_print_meta: n_merges         = 0
+llm_load_print_meta: n_ctx_train      = 2048
+llm_load_print_meta: n_embd           = 4096
+llm_load_print_meta: n_head           = 32
+llm_load_print_meta: n_head_kv        = 32
+llm_load_print_meta: n_layer          = 32
+llm_load_print_meta: n_rot            = 128
+llm_load_print_meta: n_embd_head_k    = 128
+llm_load_print_meta: n_embd_head_v    = 128
+llm_load_print_meta: n_gqa            = 1
+llm_load_print_meta: n_embd_k_gqa     = 4096
+llm_load_print_meta: n_embd_v_gqa     = 4096
+llm_load_print_meta: f_norm_eps       = 0.0e+00
+llm_load_print_meta: f_norm_rms_eps   = 1.0e-06
+llm_load_print_meta: f_clamp_kqv      = 0.0e+00
+llm_load_print_meta: f_max_alibi_bias = 0.0e+00
+llm_load_print_meta: f_logit_scale    = 0.0e+00
+llm_load_print_meta: n_ff             = 11008
+llm_load_print_meta: n_expert         = 0
+llm_load_print_meta: n_expert_used    = 0
+llm_load_print_meta: causal attn      = 1
+llm_load_print_meta: pooling type     = 0
+llm_load_print_meta: rope type        = 0
+llm_load_print_meta: rope scaling     = linear
+llm_load_print_meta: freq_base_train  = 10000.0
+llm_load_print_meta: freq_scale_train = 1
+llm_load_print_meta: n_yarn_orig_ctx  = 2048
+llm_load_print_meta: rope_finetuned   = unknown
+llm_load_print_meta: ssm_d_conv       = 0
+llm_load_print_meta: ssm_d_inner      = 0
+llm_load_print_meta: ssm_d_state      = 0
+llm_load_print_meta: ssm_dt_rank      = 0
+llm_load_print_meta: model type       = 7B
+llm_load_print_meta: model ftype      = F16
+llm_load_print_meta: model params     = 6.74 B
+llm_load_print_meta: model size       = 12.55 GiB (16.00 BPW)
+llm_load_print_meta: general.name     = llama
+llm_load_print_meta: BOS token        = 1 '<s>'
+llm_load_print_meta: EOS token        = 2 '</s>'
+llm_load_print_meta: UNK token        = 0 '<unk>'
+llm_load_print_meta: LF token         = 13 '<0x0A>'
+llm_load_tensors: ggml ctx size =    0.22 MiB
+ggml_backend_metal_buffer_from_ptr: allocated buffer, size = 12603.03 MiB, (12603.09 / 147456.00)
+llm_load_tensors: offloading 32 repeating layers to GPU
+llm_load_tensors: offloading non-repeating layers to GPU
+llm_load_tensors: offloaded 33/33 layers to GPU
+llm_load_tensors:      Metal buffer size = 12603.02 MiB
+llm_load_tensors:        CPU buffer size =   250.00 MiB
+...................................................................................................
+llama_new_context_with_model: n_ctx      = 512
+llama_new_context_with_model: n_batch    = 512
+llama_new_context_with_model: n_ubatch   = 512
+llama_new_context_with_model: freq_base  = 10000.0
+llama_new_context_with_model: freq_scale = 1
+ggml_metal_init: allocating
+ggml_metal_init: found device: Apple M2 Ultra
+ggml_metal_init: picking default device: Apple M2 Ultra
+ggml_metal_init: default.metallib not found, loading from source
+ggml_metal_init: GGML_METAL_PATH_RESOURCES = nil
+ggml_metal_init: loading '/Users/nrouf2/llm_big_small/llama2/llama.cpp/ggml-metal.metal'
+ggml_metal_init: GPU name:   Apple M2 Ultra
+ggml_metal_init: GPU family: MTLGPUFamilyApple8  (1008)
+ggml_metal_init: GPU family: MTLGPUFamilyCommon3 (3003)
+ggml_metal_init: GPU family: MTLGPUFamilyMetal3  (5001)
+ggml_metal_init: simdgroup reduction support   = true
+ggml_metal_init: simdgroup matrix mul. support = true
+ggml_metal_init: hasUnifiedMemory              = true
+ggml_metal_init: recommendedMaxWorkingSetSize  = 154618.82 MB
+ggml_backend_metal_buffer_type_alloc_buffer: allocated buffer, size =   256.00 MiB, (12860.91 / 147456.00)
+llama_kv_cache_init:      Metal KV buffer size =   256.00 MiB
+llama_new_context_with_model: KV self size  =  256.00 MiB, K (f16):  128.00 MiB, V (f16):  128.00 MiB
+llama_new_context_with_model:        CPU  output buffer size =    62.50 MiB
+ggml_backend_metal_buffer_type_alloc_buffer: allocated buffer, size =    70.50 MiB, (12931.41 / 147456.00)
+llama_new_context_with_model:      Metal compute buffer size =    70.50 MiB
+llama_new_context_with_model:        CPU compute buffer size =     9.00 MiB
+llama_new_context_with_model: graph splits: 2
+
+system_info: n_threads = 16 / 24 | AVX = 0 | AVX_VNNI = 0 | AVX2 = 0 | AVX512 = 0 | AVX512_VBMI = 0 | AVX512_VNNI = 0 | FMA = 0 | NEON = 1 | ARM_FMA = 1 | F16C = 0 | FP16_VA = 1 | WASM_SIMD = 0 | BLAS = 1 | SSE3 = 0 | SSSE3 = 0 | VSX = 0 | MATMUL_INT8 = 0 |
+main: interactive mode on.
+Reverse prompt: 'User:'
+sampling:
+        repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+        top_k = 40, tfs_z = 1.000, top_p = 0.950, min_p = 0.050, typical_p = 1.000, temp = 0.800
+        mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000
+sampling order:
+CFG -> Penalties -> top_k -> tfs_z -> typical_p -> top_p -> min_p -> temperature
+generate: n_ctx = 512, n_batch = 2048, n_predict = 1024, n_keep = 1
+
+
+== Running in interactive mode. ==
+ - Press Ctrl+C to interject at any time.
+ - Press Return to return control to LLaMa.
+ - To return control without starting a new line, end your input with '/'.
+ - If you want to submit another line, end your input with '\'.
+
+ Transcript of a dialog, where the User interacts with an Assistant named Bob. Bob is helpful, kind, honest, good at writing and has been trained on information based on microelectronic circuits and DDR design. Bob only answers based on his stacked knowledge, he never fails to answer the User's requests with precision. The user will provide a list of questions and Bob will answer all of them.
+User: Hello, Bob.
+Bob: Hello. How may I help you today?
+User: Please tell me what Electronic Design Automation is.
+Bob: EDA is the field which concerns the tools which help engineers develop and design circuits.
+User:
+Bob: Certainly, please let me know if you would like any more information on this topic.
+briefly explain the Deal-Grove model of thermal oxidation.
+Bob: The Deal-Grove model is a widely utilized model to describe the oxidation of silicon dioxide. The model considers the temperature-dependent oxidation kinetics in the presence of oxygen and water vapor. The oxidation reaction occurs through the surface reaction, and the reaction rate is affected by the concentration of oxygen and water vapor in the ambient atmosphere. The model predicts the oxidation rate as a function of temperature, oxygen concentration, and water vapor pressure.
+User:what is lithography in the fabrication of CMOS?
+Bob: Lithography is the process that is used in the fabrication of CMOS to create patterns on a silicon wafer. It involves projecting a beam of light onto the wafer and exposing the wafer to radiation through a mask that contains the desired pattern. The mask is then used to transfer the pattern to the wafer, where it will be etched or otherwise processed to create the desired features. Lithography is a critical step in the CMOS fabrication process, as it allows for the creation of complex and intricate structures on the silicon surface.
+User:how can you calculate the noise margin in CMOS inverter?
+Bob: The noise margin in a CMOS inverter is a measure of how much the output voltage of the inverter can deviate from its desired value due to various sources of noise in the circuit. To calculate the noise margin, we first need to identify the sources of noise in the circuit. The most common sources of noise are thermal noise, shot noise, and substrate noise. Once we have identified the sources of noise, we can use equations that are based on the statistical properties of the noise sources to calculate the noise margin. The noise margin is then used to determine the maximum input voltage of the inverter, and the output voltage will be determined by the desired output voltage of the circuit.
+User:define the propagation delay time in CMOS circuits.
+Bob: The propagation delay time in CMOS circuits is a measure of how long it takes for a signal to propagate through a circuit. In a CMOS circuit, the signal is transmitted through the circuit by the movement of charge carriers, either electrons or holes. The movement of these charge carriers is affected by the resistance of the circuit and the capacitance of the circuit. The propagation delay time is the time it takes for the signal to travel from one end of the circuit to the other, and it is typically measured in units of time, such as nanoseconds.
+User:what is drain induced barrier lowering?
+Bob: Drain induced barrier lowering is a phenomenon that occurs in MOSFETs when a voltage is applied between the drain and the source of the transistor. When the voltage is applied, it reduces the energy barrier that prevents the charge carriers from moving from the source to the drain. This results in a higher current flowing through the transistor. Drain induced barrier lowering is an important phenomenon in MOSFETs, as it can significantly improve the performance of the transistor in certain applications.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1
+
+13
+1
+20 1
+20
+1
+
+
+
+
+
+
+
+
+
+1
+1
+210
+20
+2
+
+
+
+
+
+

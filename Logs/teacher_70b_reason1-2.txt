@@ -1,0 +1,159 @@
+(base) nrouf2@Mac-Studio llama.cpp % ./main  -m ./models/teacher-70b/ggml-model-f16.bin  -n 1024  --repeat_penalty 1.0  --color  -i  -r "User:" -f ./prompts/test_questions.txt
+Log start
+main: build = 2442 (d84c4850)
+main: built with Apple clang version 15.0.0 (clang-1500.3.9.4) for arm64-apple-darwin23.3.0
+main: seed  = 1712520222
+llama_model_loader: loaded meta data with 16 key-value pairs and 723 tensors from ./models/teacher-70b/ggml-model-f16.bin (version GGUF V3 (latest))
+llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.
+llama_model_loader: - kv   0:                       general.architecture str              = llama
+llama_model_loader: - kv   1:                               general.name str              = LLaMA v2
+llama_model_loader: - kv   2:                           llama.vocab_size u32              = 32000
+llama_model_loader: - kv   3:                       llama.context_length u32              = 4096
+llama_model_loader: - kv   4:                     llama.embedding_length u32              = 8192
+llama_model_loader: - kv   5:                          llama.block_count u32              = 80
+llama_model_loader: - kv   6:                  llama.feed_forward_length u32              = 28672
+llama_model_loader: - kv   7:                 llama.rope.dimension_count u32              = 128
+llama_model_loader: - kv   8:                 llama.attention.head_count u32              = 64
+llama_model_loader: - kv   9:              llama.attention.head_count_kv u32              = 8
+llama_model_loader: - kv  10:     llama.attention.layer_norm_rms_epsilon f32              = 0.000010
+llama_model_loader: - kv  11:                          general.file_type u32              = 1
+llama_model_loader: - kv  12:                       tokenizer.ggml.model str              = llama
+llama_model_loader: - kv  13:                      tokenizer.ggml.tokens arr[str,32000]   = ["<unk>", "<s>", "</s>", "<0x00>", "<...
+llama_model_loader: - kv  14:                      tokenizer.ggml.scores arr[f32,32000]   = [0.000000, 0.000000, 0.000000, 0.0000...
+llama_model_loader: - kv  15:                  tokenizer.ggml.token_type arr[i32,32000]   = [2, 3, 3, 6, 6, 6, 6, 6, 6, 6, 6, 6, ...
+llama_model_loader: - type  f32:  161 tensors
+llama_model_loader: - type  f16:  562 tensors
+llm_load_vocab: special tokens definition check successful ( 259/32000 ).
+llm_load_print_meta: format           = GGUF V3 (latest)
+llm_load_print_meta: arch             = llama
+llm_load_print_meta: vocab type       = SPM
+llm_load_print_meta: n_vocab          = 32000
+llm_load_print_meta: n_merges         = 0
+llm_load_print_meta: n_ctx_train      = 4096
+llm_load_print_meta: n_embd           = 8192
+llm_load_print_meta: n_head           = 64
+llm_load_print_meta: n_head_kv        = 8
+llm_load_print_meta: n_layer          = 80
+llm_load_print_meta: n_rot            = 128
+llm_load_print_meta: n_embd_head_k    = 128
+llm_load_print_meta: n_embd_head_v    = 128
+llm_load_print_meta: n_gqa            = 8
+llm_load_print_meta: n_embd_k_gqa     = 1024
+llm_load_print_meta: n_embd_v_gqa     = 1024
+llm_load_print_meta: f_norm_eps       = 0.0e+00
+llm_load_print_meta: f_norm_rms_eps   = 1.0e-05
+llm_load_print_meta: f_clamp_kqv      = 0.0e+00
+llm_load_print_meta: f_max_alibi_bias = 0.0e+00
+llm_load_print_meta: f_logit_scale    = 0.0e+00
+llm_load_print_meta: n_ff             = 28672
+llm_load_print_meta: n_expert         = 0
+llm_load_print_meta: n_expert_used    = 0
+llm_load_print_meta: causal attn      = 1
+llm_load_print_meta: pooling type     = 0
+llm_load_print_meta: rope type        = 0
+llm_load_print_meta: rope scaling     = linear
+llm_load_print_meta: freq_base_train  = 10000.0
+llm_load_print_meta: freq_scale_train = 1
+llm_load_print_meta: n_yarn_orig_ctx  = 4096
+llm_load_print_meta: rope_finetuned   = unknown
+llm_load_print_meta: ssm_d_conv       = 0
+llm_load_print_meta: ssm_d_inner      = 0
+llm_load_print_meta: ssm_d_state      = 0
+llm_load_print_meta: ssm_dt_rank      = 0
+llm_load_print_meta: model type       = 70B
+llm_load_print_meta: model ftype      = F16
+llm_load_print_meta: model params     = 68.98 B
+llm_load_print_meta: model size       = 128.48 GiB (16.00 BPW)
+llm_load_print_meta: general.name     = LLaMA v2
+llm_load_print_meta: BOS token        = 1 '<s>'
+llm_load_print_meta: EOS token        = 2 '</s>'
+llm_load_print_meta: UNK token        = 0 '<unk>'
+llm_load_print_meta: LF token         = 13 '<0x0A>'
+llm_load_tensors: ggml ctx size =    0.55 MiB
+ggml_backend_metal_buffer_from_ptr: allocated buffer, size = 110592.00 MiB, offs =            0
+ggml_backend_metal_buffer_from_ptr: allocated buffer, size = 20973.06 MiB, offs = 115439812608, (131565.12 / 147456.00)
+llm_load_tensors: offloading 80 repeating layers to GPU
+llm_load_tensors: offloading non-repeating layers to GPU
+llm_load_tensors: offloaded 81/81 layers to GPU
+llm_load_tensors:      Metal buffer size = 131065.04 MiB
+llm_load_tensors:        CPU buffer size =   500.00 MiB
+....................................................................................................
+llama_new_context_with_model: n_ctx      = 512
+llama_new_context_with_model: n_batch    = 512
+llama_new_context_with_model: n_ubatch   = 512
+llama_new_context_with_model: freq_base  = 10000.0
+llama_new_context_with_model: freq_scale = 1
+ggml_metal_init: allocating
+ggml_metal_init: found device: Apple M2 Ultra
+ggml_metal_init: picking default device: Apple M2 Ultra
+ggml_metal_init: default.metallib not found, loading from source
+ggml_metal_init: GGML_METAL_PATH_RESOURCES = nil
+ggml_metal_init: loading '/Users/nrouf2/llm_big_small/llama2/llama.cpp/ggml-metal.metal'
+ggml_metal_init: GPU name:   Apple M2 Ultra
+ggml_metal_init: GPU family: MTLGPUFamilyApple8  (1008)
+ggml_metal_init: GPU family: MTLGPUFamilyCommon3 (3003)
+ggml_metal_init: GPU family: MTLGPUFamilyMetal3  (5001)
+ggml_metal_init: simdgroup reduction support   = true
+ggml_metal_init: simdgroup matrix mul. support = true
+ggml_metal_init: hasUnifiedMemory              = true
+ggml_metal_init: recommendedMaxWorkingSetSize  = 154618.82 MB
+ggml_backend_metal_buffer_type_alloc_buffer: allocated buffer, size =   160.00 MiB, (131726.94 / 147456.00)
+llama_kv_cache_init:      Metal KV buffer size =   160.00 MiB
+llama_new_context_with_model: KV self size  =  160.00 MiB, K (f16):   80.00 MiB, V (f16):   80.00 MiB
+llama_new_context_with_model:        CPU  output buffer size =    62.50 MiB
+ggml_backend_metal_buffer_type_alloc_buffer: allocated buffer, size =   145.02 MiB, (131871.95 / 147456.00)
+llama_new_context_with_model:      Metal compute buffer size =   145.00 MiB
+llama_new_context_with_model:        CPU compute buffer size =    17.00 MiB
+llama_new_context_with_model: graph splits: 2
+
+system_info: n_threads = 16 / 24 | AVX = 0 | AVX_VNNI = 0 | AVX2 = 0 | AVX512 = 0 | AVX512_VBMI = 0 | AVX512_VNNI = 0 | FMA = 0 | NEON = 1 | ARM_FMA = 1 | F16C = 0 | FP16_VA = 1 | WASM_SIMD = 0 | BLAS = 1 | SSE3 = 0 | SSSE3 = 0 | VSX = 0 | MATMUL_INT8 = 0 |
+main: interactive mode on.
+Reverse prompt: 'User:'
+sampling:
+        repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+        top_k = 40, tfs_z = 1.000, top_p = 0.950, min_p = 0.050, typical_p = 1.000, temp = 0.800
+        mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000
+sampling order:
+CFG -> Penalties -> top_k -> tfs_z -> typical_p -> top_p -> min_p -> temperature
+generate: n_ctx = 512, n_batch = 2048, n_predict = 1024, n_keep = 1
+
+
+== Running in interactive mode. ==
+ - Press Ctrl+C to interject at any time.
+ - Press Return to return control to LLaMa.
+ - To return control without starting a new line, end your input with '/'.
+ - If you want to submit another line, end your input with '\'.
+
+ Transcript of a dialog, where the User interacts with an Assistant named Bob. Bob is helpful, kind, honest, good at writing and has been trained on information based on microelectronic circuits and DDR design. Bob only answers based on his stacked knowledge, he never fails to answer the User's requests with precision. The user will provide a list of questions and Bob will answer all of them.
+User: Hello, Bob.
+Bob: Hello. How may I help you today?
+User: Please tell me what Electronic Design Automation is.
+Bob: EDA is the field which concerns the tools which help engineers develop and design circuits.
+User:
+Bob: May I help you with more information on this subject?
+User:The following problems test your comprehension of domain specific knowledge and your ability to apply reasoning and optimize designs based on given specifications.
+Bob: May I help you solve these problems?
+User:A n-type MOSFET (nmos) is operating in saturation. The gate to source voltage VGS is kept constant at 1V. The threshold voltage is also constant at 0.4 V. The carrier mobility of the MOSFET and the oxide parameters are constant. The channel length of the nmos (L) is fixed at 90 nm and the width (W) of the nmos Is 1 um. The aspect ratio is the nmos is calculated as W/L. I want to increase the drain current of the nmos by 3 times. Should I increase or decrease the width of the nmos?
+Bob: To increase the drain current of the nmos, you should increase the width of the nmos.
+User:Based on the answer you just provided, calculate the new width of the nmos to increase the drain current by 3 times.
+Bob: To increase the drain current by 3 times, you would need to increase the width of the nmos by a factor of 3. Therefore the new width would be 3 x 1um = 3um.
+User:An electronic circuit has a voltage source of 10 V, 1 Silicon diode, and 2 resistances: Rs = 10 kohm and RL = 2 kohm. All the components are connected in series. There is a voltage drop of 0.7 V across the Silicon diode. The output voltage is measured across RL. Consider the voltage drop across the diode and both Rs and RL when calculating the total current through the circuit. Calculate the total current through the circuit.
+Bob: To calculate the total current through the circuit, we can use Ohm's Law. The voltage across Rs is 10 V - 0.7 V = 9.3 V. The current through Rs is 9.3 V / 10 kohm = 0.93 mA. The voltage across RL is 9.3 V. The current through RL is 9.3 V / 2 kohm = 4.65 mA. The total current through the circuit is the sum of the current through Rs and RL, which is 0.93 mA + 4.65 mA = 5.58 mA.
+User:Based on the total current you just calculated, what is the value of the output voltage?
+Bob: To calculate the output voltage, we can use Ohm's Law again. The current through RL is 4.65 mA. The voltage across RL is 9.3 V. The output voltage is the voltage across RL minus the voltage drop across the diode, which is 9.3 V - 0.7 V = 8.6 V.
+
+At this point, the conversation might continue with additional questions from the user, or it might end with the user expressing thanks for the help.
+An electronic circuit has a voltage source of 10 V, 2 resistances: Rs = 8 kohm and RL = 2 kohm. All the components are connected in series. The output voltage is measured across RL. Calculate the output voltage.
+
+Bob: Sure! To calculate the output voltage, we can use Ohm's Law. The voltage across Rs is 10 V - 0.7 V = 9.3 V. The current through Rs is 9.3 V / 8 kohm = 1.16 mA. The voltage across RL is 9.3 V - 0.7 V = 8.6 V. The current through RL is 8.6 V / 2 kohm = 4.3 mA. The output voltage is 8.6 V.
+
+User:This is a new question with new data. Don't mix this up with the last question.
+
+Bob: I apologize for the mistake. Let's solve this problem again. The voltage across Rs is 10 V - 0.7 V = 9.3 V. The current through Rs is 9.3 V / 8 kohm = 1.16 mA. The voltage across RL is 9.3 V - 0.7 V = 8.6 V. The current through RL is 8.6 V /
+
+llama_print_timings:        load time =    6753.06 ms
+llama_print_timings:      sample time =      10.41 ms /   612 runs   (    0.02 ms per token, 58783.98 tokens per second)
+llama_print_timings: prompt eval time =   60074.53 ms /   568 tokens (  105.77 ms per token,     9.45 tokens per second)
+llama_print_timings:        eval time =  125809.41 ms /   604 runs   (  208.29 ms per token,     4.80 tokens per second)
+llama_print_timings:       total time =  454795.01 ms /  1172 tokens
+(base) nrouf2@Mac-Studio llama.cpp %

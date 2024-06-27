@@ -1,0 +1,169 @@
+(llama2) nrouf2@Mac-Studio llama.cpp % ./main  -m ./models/7B-tuned/ggml-model-f16.bin  -n 1024  --repeat_penalty 1.0  --color  -i  -r "User:" -f ./prompts/test_questions.txt
+Log start
+main: build = 2442 (d84c4850)
+main: built with Apple clang version 15.0.0 (clang-1500.3.9.4) for arm64-apple-darwin23.3.0
+main: seed  = 1712014895
+llama_model_loader: loaded meta data with 16 key-value pairs and 291 tensors from ./models/7B-tuned/ggml-model-f16.bin (version GGUF V3 (latest))
+llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.
+llama_model_loader: - kv   0:                       general.architecture str              = llama
+llama_model_loader: - kv   1:                               general.name str              = llama
+llama_model_loader: - kv   2:                           llama.vocab_size u32              = 32000
+llama_model_loader: - kv   3:                       llama.context_length u32              = 2048
+llama_model_loader: - kv   4:                     llama.embedding_length u32              = 4096
+llama_model_loader: - kv   5:                          llama.block_count u32              = 32
+llama_model_loader: - kv   6:                  llama.feed_forward_length u32              = 11008
+llama_model_loader: - kv   7:                 llama.rope.dimension_count u32              = 128
+llama_model_loader: - kv   8:                 llama.attention.head_count u32              = 32
+llama_model_loader: - kv   9:              llama.attention.head_count_kv u32              = 32
+llama_model_loader: - kv  10:     llama.attention.layer_norm_rms_epsilon f32              = 0.000001
+llama_model_loader: - kv  11:                          general.file_type u32              = 1
+llama_model_loader: - kv  12:                       tokenizer.ggml.model str              = llama
+llama_model_loader: - kv  13:                      tokenizer.ggml.tokens arr[str,32000]   = ["<unk>", "<s>", "</s>", "<0x00>", "<...
+llama_model_loader: - kv  14:                      tokenizer.ggml.scores arr[f32,32000]   = [0.000000, 0.000000, 0.000000, 0.0000...
+llama_model_loader: - kv  15:                  tokenizer.ggml.token_type arr[i32,32000]   = [2, 3, 3, 6, 6, 6, 6, 6, 6, 6, 6, 6, ...
+llama_model_loader: - type  f32:   65 tensors
+llama_model_loader: - type  f16:  226 tensors
+llm_load_vocab: special tokens definition check successful ( 259/32000 ).
+llm_load_print_meta: format           = GGUF V3 (latest)
+llm_load_print_meta: arch             = llama
+llm_load_print_meta: vocab type       = SPM
+llm_load_print_meta: n_vocab          = 32000
+llm_load_print_meta: n_merges         = 0
+llm_load_print_meta: n_ctx_train      = 2048
+llm_load_print_meta: n_embd           = 4096
+llm_load_print_meta: n_head           = 32
+llm_load_print_meta: n_head_kv        = 32
+llm_load_print_meta: n_layer          = 32
+llm_load_print_meta: n_rot            = 128
+llm_load_print_meta: n_embd_head_k    = 128
+llm_load_print_meta: n_embd_head_v    = 128
+llm_load_print_meta: n_gqa            = 1
+llm_load_print_meta: n_embd_k_gqa     = 4096
+llm_load_print_meta: n_embd_v_gqa     = 4096
+llm_load_print_meta: f_norm_eps       = 0.0e+00
+llm_load_print_meta: f_norm_rms_eps   = 1.0e-06
+llm_load_print_meta: f_clamp_kqv      = 0.0e+00
+llm_load_print_meta: f_max_alibi_bias = 0.0e+00
+llm_load_print_meta: f_logit_scale    = 0.0e+00
+llm_load_print_meta: n_ff             = 11008
+llm_load_print_meta: n_expert         = 0
+llm_load_print_meta: n_expert_used    = 0
+llm_load_print_meta: causal attn      = 1
+llm_load_print_meta: pooling type     = 0
+llm_load_print_meta: rope type        = 0
+llm_load_print_meta: rope scaling     = linear
+llm_load_print_meta: freq_base_train  = 10000.0
+llm_load_print_meta: freq_scale_train = 1
+llm_load_print_meta: n_yarn_orig_ctx  = 2048
+llm_load_print_meta: rope_finetuned   = unknown
+llm_load_print_meta: ssm_d_conv       = 0
+llm_load_print_meta: ssm_d_inner      = 0
+llm_load_print_meta: ssm_d_state      = 0
+llm_load_print_meta: ssm_dt_rank      = 0
+llm_load_print_meta: model type       = 7B
+llm_load_print_meta: model ftype      = F16
+llm_load_print_meta: model params     = 6.74 B
+llm_load_print_meta: model size       = 12.55 GiB (16.00 BPW)
+llm_load_print_meta: general.name     = llama
+llm_load_print_meta: BOS token        = 1 '<s>'
+llm_load_print_meta: EOS token        = 2 '</s>'
+llm_load_print_meta: UNK token        = 0 '<unk>'
+llm_load_print_meta: LF token         = 13 '<0x0A>'
+llm_load_tensors: ggml ctx size =    0.22 MiB
+ggml_backend_metal_buffer_from_ptr: allocated buffer, size = 12603.03 MiB, (12603.09 / 147456.00)
+llm_load_tensors: offloading 32 repeating layers to GPU
+llm_load_tensors: offloading non-repeating layers to GPU
+llm_load_tensors: offloaded 33/33 layers to GPU
+llm_load_tensors:      Metal buffer size = 12603.02 MiB
+llm_load_tensors:        CPU buffer size =   250.00 MiB
+...................................................................................................
+llama_new_context_with_model: n_ctx      = 512
+llama_new_context_with_model: n_batch    = 512
+llama_new_context_with_model: n_ubatch   = 512
+llama_new_context_with_model: freq_base  = 10000.0
+llama_new_context_with_model: freq_scale = 1
+ggml_metal_init: allocating
+ggml_metal_init: found device: Apple M2 Ultra
+ggml_metal_init: picking default device: Apple M2 Ultra
+ggml_metal_init: default.metallib not found, loading from source
+ggml_metal_init: GGML_METAL_PATH_RESOURCES = nil
+ggml_metal_init: loading '/Users/nrouf2/llm_big_small/llama2/llama.cpp/ggml-metal.metal'
+ggml_metal_init: GPU name:   Apple M2 Ultra
+ggml_metal_init: GPU family: MTLGPUFamilyApple8  (1008)
+ggml_metal_init: GPU family: MTLGPUFamilyCommon3 (3003)
+ggml_metal_init: GPU family: MTLGPUFamilyMetal3  (5001)
+ggml_metal_init: simdgroup reduction support   = true
+ggml_metal_init: simdgroup matrix mul. support = true
+ggml_metal_init: hasUnifiedMemory              = true
+ggml_metal_init: recommendedMaxWorkingSetSize  = 154618.82 MB
+ggml_backend_metal_buffer_type_alloc_buffer: allocated buffer, size =   256.00 MiB, (12860.91 / 147456.00)
+llama_kv_cache_init:      Metal KV buffer size =   256.00 MiB
+llama_new_context_with_model: KV self size  =  256.00 MiB, K (f16):  128.00 MiB, V (f16):  128.00 MiB
+llama_new_context_with_model:        CPU  output buffer size =    62.50 MiB
+ggml_backend_metal_buffer_type_alloc_buffer: allocated buffer, size =    70.50 MiB, (12931.41 / 147456.00)
+llama_new_context_with_model:      Metal compute buffer size =    70.50 MiB
+llama_new_context_with_model:        CPU compute buffer size =     9.00 MiB
+llama_new_context_with_model: graph splits: 2
+
+system_info: n_threads = 16 / 24 | AVX = 0 | AVX_VNNI = 0 | AVX2 = 0 | AVX512 = 0 | AVX512_VBMI = 0 | AVX512_VNNI = 0 | FMA = 0 | NEON = 1 | ARM_FMA = 1 | F16C = 0 | FP16_VA = 1 | WASM_SIMD = 0 | BLAS = 1 | SSE3 = 0 | SSSE3 = 0 | VSX = 0 | MATMUL_INT8 = 0 |
+main: interactive mode on.
+Reverse prompt: 'User:'
+sampling:
+        repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+        top_k = 40, tfs_z = 1.000, top_p = 0.950, min_p = 0.050, typical_p = 1.000, temp = 0.800
+        mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000
+sampling order:
+CFG -> Penalties -> top_k -> tfs_z -> typical_p -> top_p -> min_p -> temperature
+generate: n_ctx = 512, n_batch = 2048, n_predict = 1024, n_keep = 1
+
+
+== Running in interactive mode. ==
+ - Press Ctrl+C to interject at any time.
+ - Press Return to return control to LLaMa.
+ - To return control without starting a new line, end your input with '/'.
+ - If you want to submit another line, end your input with '\'.
+
+ Transcript of a dialog, where the User interacts with an Assistant named Bob. Bob is helpful, kind, honest, good at writing and has been trained on information based on microelectronic circuits and DDR design. Bob only answers based on his stacked knowledge, he never fails to answer the User's requests with precision. The user will provide a list of questions and Bob will answer all of them.
+User: Hello, Bob.
+Bob: Hello. How may I help you today?
+User: Please tell me what Electronic Design Automation is.
+Bob: EDA is the field which concerns the tools which help engineers develop and design circuits.
+User:
+Bob:  Can you give me a list of the best tools for EDA?
+Bob:  Sure. The industry standard tools are Cadence, Synopsys and Mentor Graphics. Cadence and Synopsys are the oldest and have the most powerful tools for design and simulation of digital circuits. Mentor Graphics has the best tools for analog and mixed signal circuits, and it has been used by most of the big players in the field. It is the best to use the latest versions of these tools since they have the most capabilities and the bugs have been worked out.
+User:explain the small signal model of MOSFET.
+Bob:  Sure. The small signal model of the MOSFET is a mathematical model which allows you to analyze the device's behavior when the input signal is small. The small signal model is the most widely used model since it allows you to analyze the device's behavior with a small input signal which is more realistic than a large signal model. The small signal model is used to analyze the linear behavior of the device.
+User:explain the structure of BJT.
+Bob:  Sure. The BJT is made up of three layers of semiconductor material with alternating P and N types. It has two terminals, the collector and the base, and a third terminal known as the emitter. The base and the emitter are in series with the collector so that the BJT acts as a current controlled device. The BJT can be used as an amplifier, switch or an active element in a circuit.
+User:explain the structure of MOSFET.
+Bob:  Sure. The MOSFET is a field effect transistor which means that the transistor's behavior is determined by the electric field around the channel rather than the charge on the transistor. The MOSFET has three terminals, the source, the drain and the gate. The source and the drain are separated by a thin layer of insulating material called the substrate. The gate is separated from the source and the drain by a thin layer of insulating material known as the gate oxide.
+User:how is the channel formed in MOSFET?
+Bob:  Sure. In a MOSFET, the channel is formed by the depletion layer that forms around the gate electrode when a voltage is applied between the source and the drain. The depletion layer is created when the voltage is applied between the source and the drain. The depletion layer is made up of the charge that has been removed from the channel. When a voltage is applied between the source and the drain, the depletion layer increases in length.
+User:what are the operating regions of BJT?
+Bob:  Sure. The BJT has three operating regions, the active region, the cutoff region and the reverse cutoff region. The active region is the region where the transistor is in its most efficient operating mode. The cutoff region is the region where the transistor is cut off or off. The reverse cutoff region is the region where the transistor is in its most inefficient operating mode.
+User:what are the different operating regions of MOSFET?
+Bob:  Sure. The MOSFET has three operating regions, the active region, the depletion region and the cutoff region. The active region is the region where the transistor is in its most efficient operating mode. The depletion region is the region where the transistor is in its most inefficient operating mode. The cutoff region is the region where the transistor is cut off or off.
+User:in which operating region, the MOSFET can be used as an amplifier?
+Bob:  Sure. The MOSFET can be used as an amplifier in the active region. In the active region, the transistor is in its most efficient operating mode, so the transistor can amplify the input signal.
+User:in which operating region, the MOSFET can be used as a switch?
+Bob:  Sure. The MOSFET can be used as a switch in the cutoff region. In the cutoff region, the transistor is off, so there is no signal flow through the transistor, making it useful for switching applications.
+User:explain the pinch-off voltage in MOSFET.
+Bob:  The pinch-off voltage, also known as the pinch-off threshold voltage, is the voltage at which a MOSFET begins to turn off. It is the voltage at which the transistor starts to cut off the flow of current, making it useful for switching applications.
+User:what are intrinsic and extrinsic semiconductors?
+Bob:  Intrinsic semicon
+ductors are those that contain no impurities, while extrinsic semiconductors are those that contain impurities. Intrinsic semiconductors have a uniform distribution of charge, while extrinsic semiconductors have a non-uniform distribution of charge, making them useful for controlling the flow of current.
+User:what are the parameters influencing the gain of a Common source amplifier?
+Bob:  The parameters that influence the gain of a common source amplifier are the transistor gain, the feedback resistor, and the input signal. The gain of the amplifier is determined by the ratio of the input signal to the output signal.
+User:what are some possible applications of common drain amplifier configuration?
+Bob:  Common drain amplifier configuration is useful for applications where a high gain is required, such as in audio amplifiers, radio frequency (RF) amplifiers, and other high-gain applications.
+User:give a brief comparison of Common source, Common drain and common gate configuration in terms of input resistance, output resistance and gain.
+Bob:  The input resistance of a common source amplifier is higher than the output resistance, while the input resistance of a common drain amplifier is lower than the output resistance. The gain of a common source amplifier is lower than the gain of a common drain amplifier. The gain of a common gate amplifier is higher than the gain of a common source or common drain amplifier.
+User:mention some non-ideal effects observed in MOSFET.
+Bob:  Non-ideal effects observed in MOSFET include parasitic capacitance, parasitic inductance, substrate biasing, and gate-oxide breakdown. These effects can affect the performance of the MOSFET and must be taken into account when designing and optimizing the circuit.
+User:what is channel length modulation of MOSFET? Explain with equation.
+Bob:  Channel length modulation is the variation of the channel length with the voltage across the MOSFET. The equation for channel length modulation is given by:
+Vcs = Vgs + Vgs
+
+where Vcs is the channel length and Vgs is the gate-source voltage.
+
+

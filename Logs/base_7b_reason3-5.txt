@@ -1,0 +1,160 @@
+(base) nrouf2@Mac-Studio llama.cpp % ./main  -m ./models/7B/ggml-model-f16.bin  -n 1024  --repeat_penalty 1.0  --color  -i  -r "User:" -f ./prompts/chat-with-bob.txt
+Log start
+main: build = 2442 (d84c4850)
+main: built with Apple clang version 15.0.0 (clang-1500.3.9.4) for arm64-apple-darwin23.3.0
+main: seed  = 1712515492
+llama_model_loader: loaded meta data with 16 key-value pairs and 291 tensors from ./models/7B/ggml-model-f16.bin (version GGUF V3 (latest))
+llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.
+llama_model_loader: - kv   0:                       general.architecture str              = llama
+llama_model_loader: - kv   1:                               general.name str              = llama
+llama_model_loader: - kv   2:                           llama.vocab_size u32              = 32000
+llama_model_loader: - kv   3:                       llama.context_length u32              = 2048
+llama_model_loader: - kv   4:                     llama.embedding_length u32              = 4096
+llama_model_loader: - kv   5:                          llama.block_count u32              = 32
+llama_model_loader: - kv   6:                  llama.feed_forward_length u32              = 11008
+llama_model_loader: - kv   7:                 llama.rope.dimension_count u32              = 128
+llama_model_loader: - kv   8:                 llama.attention.head_count u32              = 32
+llama_model_loader: - kv   9:              llama.attention.head_count_kv u32              = 32
+llama_model_loader: - kv  10:     llama.attention.layer_norm_rms_epsilon f32              = 0.000001
+llama_model_loader: - kv  11:                          general.file_type u32              = 1
+llama_model_loader: - kv  12:                       tokenizer.ggml.model str              = llama
+llama_model_loader: - kv  13:                      tokenizer.ggml.tokens arr[str,32000]   = ["<unk>", "<s>", "</s>", "<0x00>", "<...
+llama_model_loader: - kv  14:                      tokenizer.ggml.scores arr[f32,32000]   = [0.000000, 0.000000, 0.000000, 0.0000...
+llama_model_loader: - kv  15:                  tokenizer.ggml.token_type arr[i32,32000]   = [2, 3, 3, 6, 6, 6, 6, 6, 6, 6, 6, 6, ...
+llama_model_loader: - type  f32:   65 tensors
+llama_model_loader: - type  f16:  226 tensors
+llm_load_vocab: special tokens definition check successful ( 259/32000 ).
+llm_load_print_meta: format           = GGUF V3 (latest)
+llm_load_print_meta: arch             = llama
+llm_load_print_meta: vocab type       = SPM
+llm_load_print_meta: n_vocab          = 32000
+llm_load_print_meta: n_merges         = 0
+llm_load_print_meta: n_ctx_train      = 2048
+llm_load_print_meta: n_embd           = 4096
+llm_load_print_meta: n_head           = 32
+llm_load_print_meta: n_head_kv        = 32
+llm_load_print_meta: n_layer          = 32
+llm_load_print_meta: n_rot            = 128
+llm_load_print_meta: n_embd_head_k    = 128
+llm_load_print_meta: n_embd_head_v    = 128
+llm_load_print_meta: n_gqa            = 1
+llm_load_print_meta: n_embd_k_gqa     = 4096
+llm_load_print_meta: n_embd_v_gqa     = 4096
+llm_load_print_meta: f_norm_eps       = 0.0e+00
+llm_load_print_meta: f_norm_rms_eps   = 1.0e-06
+llm_load_print_meta: f_clamp_kqv      = 0.0e+00
+llm_load_print_meta: f_max_alibi_bias = 0.0e+00
+llm_load_print_meta: f_logit_scale    = 0.0e+00
+llm_load_print_meta: n_ff             = 11008
+llm_load_print_meta: n_expert         = 0
+llm_load_print_meta: n_expert_used    = 0
+llm_load_print_meta: causal attn      = 1
+llm_load_print_meta: pooling type     = 0
+llm_load_print_meta: rope type        = 0
+llm_load_print_meta: rope scaling     = linear
+llm_load_print_meta: freq_base_train  = 10000.0
+llm_load_print_meta: freq_scale_train = 1
+llm_load_print_meta: n_yarn_orig_ctx  = 2048
+llm_load_print_meta: rope_finetuned   = unknown
+llm_load_print_meta: ssm_d_conv       = 0
+llm_load_print_meta: ssm_d_inner      = 0
+llm_load_print_meta: ssm_d_state      = 0
+llm_load_print_meta: ssm_dt_rank      = 0
+llm_load_print_meta: model type       = 7B
+llm_load_print_meta: model ftype      = F16
+llm_load_print_meta: model params     = 6.74 B
+llm_load_print_meta: model size       = 12.55 GiB (16.00 BPW)
+llm_load_print_meta: general.name     = llama
+llm_load_print_meta: BOS token        = 1 '<s>'
+llm_load_print_meta: EOS token        = 2 '</s>'
+llm_load_print_meta: UNK token        = 0 '<unk>'
+llm_load_print_meta: LF token         = 13 '<0x0A>'
+llm_load_tensors: ggml ctx size =    0.22 MiB
+ggml_backend_metal_buffer_from_ptr: allocated buffer, size = 12603.03 MiB, (12603.09 / 147456.00)
+llm_load_tensors: offloading 32 repeating layers to GPU
+llm_load_tensors: offloading non-repeating layers to GPU
+llm_load_tensors: offloaded 33/33 layers to GPU
+llm_load_tensors:      Metal buffer size = 12603.02 MiB
+llm_load_tensors:        CPU buffer size =   250.00 MiB
+...................................................................................................
+llama_new_context_with_model: n_ctx      = 512
+llama_new_context_with_model: n_batch    = 512
+llama_new_context_with_model: n_ubatch   = 512
+llama_new_context_with_model: freq_base  = 10000.0
+llama_new_context_with_model: freq_scale = 1
+ggml_metal_init: allocating
+ggml_metal_init: found device: Apple M2 Ultra
+ggml_metal_init: picking default device: Apple M2 Ultra
+ggml_metal_init: default.metallib not found, loading from source
+ggml_metal_init: GGML_METAL_PATH_RESOURCES = nil
+ggml_metal_init: loading '/Users/nrouf2/llm_big_small/llama2/llama.cpp/ggml-metal.metal'
+ggml_metal_init: GPU name:   Apple M2 Ultra
+ggml_metal_init: GPU family: MTLGPUFamilyApple8  (1008)
+ggml_metal_init: GPU family: MTLGPUFamilyCommon3 (3003)
+ggml_metal_init: GPU family: MTLGPUFamilyMetal3  (5001)
+ggml_metal_init: simdgroup reduction support   = true
+ggml_metal_init: simdgroup matrix mul. support = true
+ggml_metal_init: hasUnifiedMemory              = true
+ggml_metal_init: recommendedMaxWorkingSetSize  = 154618.82 MB
+ggml_backend_metal_buffer_type_alloc_buffer: allocated buffer, size =   256.00 MiB, (12860.91 / 147456.00)
+llama_kv_cache_init:      Metal KV buffer size =   256.00 MiB
+llama_new_context_with_model: KV self size  =  256.00 MiB, K (f16):  128.00 MiB, V (f16):  128.00 MiB
+llama_new_context_with_model:        CPU  output buffer size =    62.50 MiB
+ggml_backend_metal_buffer_type_alloc_buffer: allocated buffer, size =    70.50 MiB, (12931.41 / 147456.00)
+llama_new_context_with_model:      Metal compute buffer size =    70.50 MiB
+llama_new_context_with_model:        CPU compute buffer size =     9.00 MiB
+llama_new_context_with_model: graph splits: 2
+
+system_info: n_threads = 16 / 24 | AVX = 0 | AVX_VNNI = 0 | AVX2 = 0 | AVX512 = 0 | AVX512_VBMI = 0 | AVX512_VNNI = 0 | FMA = 0 | NEON = 1 | ARM_FMA = 1 | F16C = 0 | FP16_VA = 1 | WASM_SIMD = 0 | BLAS = 1 | SSE3 = 0 | SSSE3 = 0 | VSX = 0 | MATMUL_INT8 = 0 |
+main: interactive mode on.
+Reverse prompt: 'User:'
+sampling:
+        repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+        top_k = 40, tfs_z = 1.000, top_p = 0.950, min_p = 0.050, typical_p = 1.000, temp = 0.800
+        mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000
+sampling order:
+CFG -> Penalties -> top_k -> tfs_z -> typical_p -> top_p -> min_p -> temperature
+generate: n_ctx = 512, n_batch = 2048, n_predict = 1024, n_keep = 1
+
+
+== Running in interactive mode. ==
+ - Press Ctrl+C to interject at any time.
+ - Press Return to return control to LLaMa.
+ - To return control without starting a new line, end your input with '/'.
+ - If you want to submit another line, end your input with '\'.
+
+ Transcript of a dialog, where the User interacts with an Assistant named Bob. Bob is helpful, kind, honest, good at writing, and never fails to answer the User's requests immediately and with precision.
+
+User: Hello, Bob.
+Bob: Hello. How may I help you today?
+User: Please tell me the largest city in Europe.
+Bob: Sure. The largest city in Europe is Moscow, the capital of Russia.
+User:The following problems test your comprehension of domain specific knowledge and your ability to apply reasoning and optimize designs based on given specifications.
+Bob: Of course! I'd be happy to help you with that. What are the problems you're referring to?
+User:n electronic circuit has a voltage source of 10 V, 2 resistances: Rs = 8 kohm and RL = 2 kohm. The output voltage is measured across RL. Calculate the output voltage.
+Bob: Let me see... The voltage across RL can be calculated using Ohm's Law: Vout = IRL, where I is the current through RL. Can you tell me what the current through RL is?
+User:Answer only based on the given information.
+Bob: Of course! Based on the information provided, the current through RL is 2 amps. Now, we can plug this value into Ohm's Law to calculate the output voltage: Vout = IRL = 2 amps x 2 kohm = 4 volts.
+User:Based on the answer you just provided, the source voltage stays at 10 V and load resistance remains unchanged at 2 kohm. If I want to increase the output voltage by 2 times, we need to decrease the value of the source resistor. Calculate the new value of the source resistor such that the new output voltage value is 2 times the present output voltage value calculated in the previous part.
+Bob: Understood! To increase the output voltage by 2 times, we need to decrease the value of the source resistor. Let's use the formula Vout = IRL to calculate the new value of the source resistor: Vout = IRL, where I is the current through RL. Can you tell me what the current through RL is now?
+User:Answer based on the information given to you.
+Bob: Great! Based on the information provided, the current through RL is now 4 amps. Now, we can plug this value into the formula Vout = IRL to calculate the new value of the source resistor: Vout = IRL = 4 amps x 2 kohm = 8 ohms. So, the new value of the source resistor is 8 ohms.
+User:8 ohm or 8 kohm?
+Bob: Apologies for the confusion! The new value of the source resistor is 8 ohms, not 8 kohms. Thank you for bringing this to my attention!
+You said 8 ohm. Should it be  8 ohm or 8 kohm?
+Bob: Oh, my apologies! It should be 8 ohms, not 8 kohms. Thank you for catching that!
+There are 3 currents in BJT: base current IB, collector current IC and emitter current IE. The relationship between IC and IB is: IC = beta * IB. For this case, beta = 100. If beta is constant and I want to get increase IC by 2 times, how much should I increase value of IB? Answer based on only the given information.
+Bob: Hmm, let's see... If beta is constant and we want to increase IC by 2 times, that means we want to increase IB by a factor of 2 as well. So, if IB is x, then IC will be 2x. Therefore, to increase IB by a factor of 2, we need to multiply it by 2, which gives us x * 2 = 2x.
+There are 2 resistances resistance 1 = 1 kohm and resistance 2 = 2 kohm connected in parallel with each other. Calculate the parallel equivalent resistance.
+Bob: Great, let's do this! So, we have two resistors connected in parallel, with resistance 1 = 1 kohm and resistance 2 = 2 kohm. To find the parallel equivalent resistance, we can use the formula: 1/Rtotal = 1/R1 + 1/R2. Plugging in the values, we get: 1/Rtotal = 1/1 kohm + 1/2 kohm = 0.5 kohm. Therefore, the parallel equivalent resistance is 0.5 kohm.
+Based on the answer you just provided, If I want the parallel equivalent resistance to be 0.5 kohm while keeping resistance 2 constant, what should be the new value of resistance 1?
+Bob: Ah, I see! To make the parallel equivalent resistance 0.5 kohm while keeping resistance 2 constant, we can simply divide resistance 1
+ by the same factor as we divided resistance 2. So, if resistance 2 is constant at 2 kohm, then we want resistance 1 to be 0.5 kohm / 2 kohm = 0.25 kohm. Therefore, the new value of resistance 1 is 0.25 kohm.
+
+
+llama_print_timings:        load time =     461.13 ms
+llama_print_timings:      sample time =      13.27 ms /   714 runs   (    0.02 ms per token, 53789.36 tokens per second)
+llama_print_timings: prompt eval time =   17287.03 ms /   503 tokens (   34.37 ms per token,    29.10 tokens per second)
+llama_print_timings:        eval time =   21022.13 ms /   704 runs   (   29.86 ms per token,    33.49 tokens per second)
+llama_print_timings:       total time =  339992.99 ms /  1207 tokens
+(base) nrouf2@Mac-Studio llama.cpp % clea

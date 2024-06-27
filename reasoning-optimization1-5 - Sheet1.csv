@@ -1,0 +1,10 @@
+,Ground,7B,7B-LoRA,70B,70B-LoRA,Student,RAG
+1a,Increase,Increase,Increase,Increase,Increase,Increase,decrease
+1b,3 um,3 um,3 um,3 um,3 um,3 um,330 nm
+2a,0.775 mA,1.28 A,1.395 A,5.58 mA,5.58 mA,.06 A,x
+2b,1.55 V,0.83 V,0.647  V,11.16 V,8.6 V,.7 V,x
+3a,2 V,5 V,0.625 V,2 V,2 V,5 V,6 V
+3b,3 kohm,10 kohm,13 kohm,8 kohm,4 kohm,4 kohm,x
+4,2,2,2,2,2,2,2
+5a,0.66 kohm,0.5 kohm,3 kohm,666.67 ohm,2/3 kohm,0.5 khm,x
+5b,.667 kohm,0.25 kohm,1 kohm,666.67 ohm,0.5 kohm,1.6 kohm,x
